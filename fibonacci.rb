@@ -23,17 +23,15 @@ end
 # 2 - Now write another method #fibs_rec which solves the same problem recursively.
 # Using an example input of 8, this function should return the array [0, 1, 1, 2, 3, 5, 8, 13]
 
-def fibs_value(n, fibs_rec_array = [])
-  if n == 1
-    0
-  elsif n == 2
-    1
-  else
-    fibs_value(n - 1) + fibs_value(n - 2)
-  end
+def fibs_value(n)
+  return n if n < 2
+
+  fibs_value(n - 1) + fibs_value(n - 2)
 end
 
-p fibs_value(8)
+p fibs_value(5)
+
+# 3 - Test both versions of your methods by passing in various lengths as arguments.
 
 def fibs_rec(n)
   fibs_array = []
@@ -42,7 +40,3 @@ def fibs_rec(n)
   fibs_array << fibs_value(n - 1)
   puts fibs_array
 end
-
-p fibs_rec(8)
-
-# 3 - Test both versions of your methods by passing in various lengths as arguments.
