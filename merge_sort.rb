@@ -1,22 +1,24 @@
-def merge_sort(array, left_index, right_index)
-  # if(left_index >= right_index)
-  #  return array
-  #  mid = left_index + (right_index - 1)/2
-  #  merge_sort(array, left_index, mid)
-  #  merge_sort(array, mid, right_index)
-  #  merge(array, left_index, mid, right_index)
-  #
-  #  create two extra arrays, left_array and right_array to merge back into array
-  #
+def merge(left_array, right_array)
+  merge_array = [] # set empty merge array
+  # run a comparison of elements until either left or right array is empty
+  # if left element > right element merge_array << right
+  # if right element > left element merge_array << left
+  # if left_array is empty then add remaining right array
+  # if right_array is empty then add remaining left array
 end
 
-p merge_sort([3, 2])
+def merge_sort(array)
+  n = array.length
+  return array if n == 1
 
-def two_var_sort(array)
-  if array[0] >= array[1]
-    temp = array[0]
-    array[0] = array[1]
-    array[1] = temp
-  end
-  array
+  mid = n / 2
+  left_array = array[0..mid - 1]
+  right_array = array[mid..n - 1]
+
+  merge_sort(left_array) # repeats process on left half
+  merge_sort(right_array) # repeats process on right half
+  merge(left_array, right_array) # conquer portion
 end
+
+array = [3, 2, 1, 13, 8, 5, 0, 1]
+p merge_sort(array)
