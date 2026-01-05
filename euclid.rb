@@ -1,12 +1,17 @@
-# involves finding greatest common denominator of two numbers
-# GCD(A,B)
-# if A = 0, GCD = B
-# if B = 0, GCD = A
-# A = B * QUOTIENT + REMAINDER or A = B * Q + R
-# Example, find GCD of A = 270 and B = 192
-# 270 = 192 * 1 + 78
-# 192 = 78 * 2 + 36
-# 78 = 36 * 2 + 6
-# 36 = 6 * 6 + 0
-# A = 6, B = 0
-# GCD = 6
+def euclid(num1, num2)
+  return num2 if num1.zero?
+  return num1 if num2.zero?
+
+  if num1 >= num2
+    remainder = num1 % num2
+    num1 = num2
+  else
+    remainder = num2 % num1
+    num1 = num2
+  end
+
+  num2 = remainder
+  euclid(num1, num2)
+end
+
+p euclid(1071, 462)
